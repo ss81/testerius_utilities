@@ -1,0 +1,26 @@
+<?php
+
+/**
+ * Implements hook_menu().
+ */
+function testerius_utilities_menu() {
+  $items['testerius-utilities/%'] = array(
+    'title' => 'Delete User',
+    'page callback' => '_testerius_utilities_delete_user',
+    'page arguments' => array(1),
+    'access callback' => TRUE,
+    'type' => MENU_NORMAL_ITEM,
+  );
+
+  return $items;
+}
+
+function _testerius_utilities_delete_user($email) {
+  $uid = db_select('users', 'u')->fields('u', array('uid'))->condition('mail', $email)->execute()->fetchObject();
+
+  if (!empty($uid->uid)) {
+    user_delete($uid->uid);
+  }
+
+  print "Done.\n";
+}

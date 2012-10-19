@@ -1,0 +1,5 @@
+name = Testerius Utilities
+description = The list of functions, which I use from time to time.
+package = PCMS
+core = 7.x
+files[] = testerius_utilities.module
