@@ -5,7 +5,7 @@
  */
 function testerius_utilities_menu() {
   $items['testerius-utilities/delete-user/%'] = array(
-    'title' => 'Delete User',
+    'title' => 'Delete User by Email',
     'page callback' => '_testerius_utilities_delete_user',
     'page arguments' => array(2),
     'access callback' => TRUE,
